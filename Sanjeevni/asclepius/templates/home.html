@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'apollo/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+      <div class="header">
+        <div class="left-section">
+          <img src="https://github.com/Stupid-Creations/Sanjeevni/blob/main/image.png?raw=true" class="logo" />
+          Sanjeevni
+        </div>
+
+        <div class="right-section">
+          <div class="report">Report</div>
+          <div class="dashboard">Dashboard</div>
+          <div class="forecast">Forecast</div>
+          <div class="login">
+            {% if user.is_authenticated %}
+              Hi {{ user.username }}!
+              <form action="{% url 'logout' %}" method="post">
+             {% csrf_token %}
+            <button type="submit">Log Out</button>
+          </form>
+          <a href="/apollo/report"> Do shit</a>
+          {% else %}
+          <p>You are not logged in</p>
+          <a href="{% url 'login' %}">Log In</a>
+          {% endif %}
+          </div>
+          
+        </div>
+      </div>
+      {% endblock %}
+    </body>
+</html>
+

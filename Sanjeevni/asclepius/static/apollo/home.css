@@ -1,0 +1,36 @@
+.header{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: rgb(233, 233, 233);
+    z-index: 100;
+}
+.left-section{
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    width: 300px;
+    justify-content: space-around;
+    flex: 0.35;
+}
+.right-section{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+    background-color: aquamarine;
+}
+.logo{
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+}

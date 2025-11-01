@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'apollo/login.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="parent-container">
+      <div class="container">
+        <div class="display">
+          <img
+            src="https://github.com/Stupid-Creations/Sanjeevni/blob/main/image.png?raw=true"
+            class="img"
+            alt="Login illustration"
+          />
+        </div>
+
+        <div class="login-panel">
+          <form method="post" class="form-group">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <p class="un">Username:</p>
+            <div class="username">
+              {{ form.username.errors }}
+              {{ form.username }}
+            </div>
+            <p class="pw">Password:</p>
+            <div class="psw">
+              {{ form.password.errors }}
+              {{ form.password }}
+            </div>
+
+            <button type="submit" class="log-in" href="{% url 'signup' %}">Login</button>
+          </form>
+
+          <div>
+            <a href="{% url 'signup' %}" class="signup-link">Sign Up!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

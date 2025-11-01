@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="{% static 'apollo/signup.css' %}" />
+           <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+    </head>
+<body>
+     <div class="parent-container">
+      <div class="container">
+        <div class="display">
+          <img
+            src="https://github.com/Stupid-Creations/Sanjeevni/blob/main/image.png?raw=true"
+            class="img"
+            alt="Login illustration"
+          />
+        </div>
+        <form method="post">
+        <div class="login-panel">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="username">
+              <p class="un">Username:</p>
+              {{ form.username.errors }}
+              {{ form.username }}
+            </div>
+            <div class="email">
+              <p class="em">Email:</p>
+              {{ form.email.errors }}
+              {{ form.email }}
+            </div>
+            <div class="psw">
+              <p class="pw">Password:</p>
+              {{ form.password1.errors }}
+              {{ form.password1 }}
+            </div>
+            <div class="psw1">
+              <p class="pw1">Retype Password:</p>
+              {{ form.password2.errors }}
+              {{ form.password2 }}
+
+            </div>
+            <div class="address">
+              <p class="ad">Address:</p>
+              {{ form.add.errors }}
+              {{ form.add }}
+            </div>
+            <div class="dob">
+              <p class="db">Date of birth:</p>
+              {{ form.dob.errors }}
+              {{ form.dob }}
+            </div>
+
+            <button type="submit" class="sign-up">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>  
+{% endblock %}
+</body>
+</html>
+

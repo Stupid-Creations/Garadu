@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Report Health Issue{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="create_report.css">
+
+  </head>
+  <body>
+    <h2>Submit a Report</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="container" style="
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      background-color: blue;
+      ">
+        <div class="label" style="">
+          {{form.symptom_text.label}}
+        </div>
+        <div class="text">
+          {{form.symptom_text}}
+        </div>
+        <div class="help-text">
+          {{form.symptom_text.help_text}}
+        </div>
+       <button type="submit">Submit</button>
+      </form>
+      </div>
+      
+    {% endblock %}        
+  </body>
+</html>
